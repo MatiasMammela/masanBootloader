@@ -1,0 +1,18 @@
+name ="disk.img"
+protective-mbr = true
+
+bootsector="build/mbr.bin"
+
+[[partitions]]
+type = "file"
+name = "Moi"
+gpt-type = "939927e7-6cd4-49e5-a098-d5b3e25be80f"
+file = "build/entry.elf"
+
+[[partitions]]
+name="root"
+gpt-type="dcd9a07c-b435-429c-9e73-92cf06d3ac72"
+type="fs"
+fs-type = "fat32"
+size=512
+files=["build/kernel.elf"]
